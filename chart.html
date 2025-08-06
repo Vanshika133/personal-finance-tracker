@@ -1,0 +1,90 @@
+<!DOCTYPE html>  
+<!-- Declares the document is in HTML5 -->
+
+<html lang="en">  
+<!-- Starts the HTML document and sets the language to English -->
+
+<head>  
+  <!-- Head section contains metadata, styles, and external resources -->
+
+  <meta charset="UTF-8">  
+  <!-- Sets character encoding to UTF-8 (supports all characters and symbols) -->
+
+  <title>Finance Pie Chart</title>  
+  <!-- The title that appears in the browser tab -->
+
+  <style>  
+    /* Embedded CSS styles */
+
+    body {
+      font-family: Arial, sans-serif;  /* Sets the font style */
+      background: #f4f4f4;  /* Light gray background */
+      text-align: center;  /* Aligns all text to the center */
+      padding: 20px;  /* Adds 20px space inside the body on all sides */
+    }
+
+    canvas {
+      margin-top: 30px;  /* Adds space above the chart */
+      background: white;  /* White background for the canvas */
+      border-radius: 10px;  /* Rounded corners */
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);  /* Light shadow effect */
+      padding: 20px;  /* Padding inside the canvas */
+    }
+  </style>  
+  <!-- End of embedded CSS -->
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>  
+  <!-- Loads the Chart.js library from CDN (used to create charts) -->
+</head>
+
+<body>  
+  <!-- Body section begins -->
+
+  <h2>🥧 Financial Pie Chart</h2>  
+  <!-- Main heading for the page -->
+
+  <canvas id="financeChart" width="20%" height="20%"></canvas>  
+  <!-- Canvas area where the pie chart will be drawn -->
+
+  <script>
+    // Injecting Flask data into JavaScript variables using Jinja2
+    const totalExpenses = {{ expenses | default(0) | tojson }};  // Total expenses from Flask
+    const balance = {{ balance | default(0) | tojson }};         // Remaining balance from Flask
+
+    // Get the drawing context of the canvas
+    const ctx = document.getElementById("financeChart").getContext("2d");
+
+    // Create a new pie chart using Chart.js
+    new Chart(ctx, {
+      type: 'pie',  // Specifies a pie chart
+      data: {
+        labels: [ "Expenses", "Remaining Balance"],  // Labels for chart sections
+        datasets: [{
+          label: "₹",  // Label for the dataset (optional)
+          data: [ totalExpenses, balance],  // Values for the pie chart
+          backgroundColor: [
+            "#28a745",  // Green for Expenses
+            "#dc3545",  // Red for Balance
+            "#ffc107"   // Yellow (in case extra data is added)
+          ],
+          borderWidth: 1  // Border thickness for chart segments
+        }]
+      },
+      options: {
+        responsive: true,  // Makes the chart responsive to screen size
+        plugins: {
+          title: {
+            display: true,
+            text: "Finance Overview - Pie Chart"  // Title shown above the chart
+          }
+        }
+      }
+    });
+  </script>
+
+</body>
+</html>
+
+
+
+

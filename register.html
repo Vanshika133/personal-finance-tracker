@@ -1,0 +1,127 @@
+<!DOCTYPE html>  <!-- Declares HTML5 document type -->
+<html lang="en">  <!-- Starts HTML document and sets language to English -->
+
+<head>
+  <meta charset="UTF-8">  <!-- Sets character encoding -->
+  <title>Register - Finance Tracker</title>  <!-- Page title shown in the browser tab -->
+
+  <style> 
+    body {
+      margin: 0;  /* Removes default margin */
+      font-family: Arial, sans-serif;  /* Sets the font */
+    }
+
+    .container {
+      display: flex;  /* Flex layout to divide left and right sections */
+      height: 100vh;  /* Full height of the screen */
+    }
+
+    .left {
+      width: 50%;  /* Left pane takes 50% of the width */
+      background-color: #f0f0f0;  /* Light grey background */
+      display: flex;
+      justify-content: center;  /* Horizontally centers image */
+      align-items: center;  /* Vertically centers image */
+    }
+
+    .left img {
+      width: 90%;  /* Makes image responsive */
+      max-width: 700px;  /* Sets maximum width */
+      border-radius: 10px;  /* Rounds image corners */
+    }
+
+    .right-pane {
+      flex: 1;  /* Right side takes remaining space */
+      display: flex;
+      flex-direction: column;
+      justify-content: center;  /* Vertically center content */
+      align-items: center;  /* Horizontally center content */
+      background-color: #f7f7f7;  /* Slightly lighter grey */
+      padding: 30px;
+    }
+
+    .register-box {
+      background-color: #ffffff;  /* White background for the form */
+      padding: 30px;
+      border-radius: 10px;  /* Rounded box */
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);  /* Soft shadow */
+      width: 100%;
+      max-width: 400px;  /* Max form width */
+    }
+
+    .register-box h2 {
+      margin-bottom: 20px;
+      text-align: center;  /* Centers the heading */
+    }
+
+    /* Style for input fields */
+    .register-box input[type="text"],
+    .register-box input[type="email"],
+    .register-box input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    /* Style for submit and secondary buttons */
+    .register-box input[type="submit"],
+    .register-box button {
+      width: 100%;
+      padding: 10px;
+      background-color: #007BFF;  /* Primary button color (blue) */
+      border: none;
+      color: white;
+      font-weight: bold;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    .register-box button {
+      background-color: #6c757d;  /* Grey for secondary buttons */
+    }
+
+    /* Hover effects */
+    .register-box button:hover,
+    .register-box input[type="submit"]:hover {
+      opacity: 0.9;  /* Slight fade on hover */
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="container">  <!-- Main wrapper for left + right layout -->
+
+  <div class="left">
+    <!-- Registration image on the left -->
+    <img src="static\image1\finance.jpg" alt="Finance">
+    <!-- ❗Note: Use forward slashes `/` and Flask's `url_for()` in templates: 
+         {{ url_for('static', filename='image1/finance.jpg') }} -->
+  </div>
+
+  <div class="right-pane">  <!-- Right side containing the form -->
+    <div class="register-box">
+      <h2>Create Account</h2>
+
+      <!-- Registration form sends POST request to /register route -->
+      <form action="/register" method="post">
+        <input type="text" name="fullname" placeholder="Full Name" required>
+        <input type="email" name="email" placeholder="Email Address" required>
+        <input type="text" name="username" placeholder="Username" required>
+        <input type="password" name="password" placeholder="Password" required>
+        <input type="submit" value="Register">
+      </form>
+
+      <!-- Link to go to login page -->
+      <p>Already have an account? <a href="{{ url_for('login') }}">Login here</a></p>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>
+

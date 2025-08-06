@@ -1,0 +1,66 @@
+<!DOCTYPE html>  <!-- Declares the document as HTML5 -->
+<html lang="en">  <!-- Starts HTML and sets the language to English -->
+
+<head>  <!-- Head section begins -->
+  <meta charset="UTF-8">  <!-- Sets character encoding to UTF-8 -->
+  <title>Menu</title>  <!-- Title displayed in the browser tab -->
+</head>
+
+<body>  <!-- Body content starts -->
+  <h2>MENU</h2>  <!-- Heading for the menu -->
+
+  <style>  
+    body {
+      font-family: Arial, sans-serif;  /* Sets the font */
+      background: #f0f0f0;  /* Light grey background */
+      padding: 7px;  /* Space around the content */
+    }
+
+    .menu-button {
+      display: block;  /* Each button takes its own line */
+      width: 100%;  /* Full width within container */
+      max-width: 180px;  /* Limit maximum button width */
+      margin: 7px auto;  /* Center horizontally with vertical spacing */
+      padding: 10px 20px;  /* Inner padding for buttons */
+      background-color: #05182c;  /* Dark blue background */
+      color: white;  /* White text */
+      font-weight: bold;  /* Bold text */
+      text-align: center;  /* Center text inside the button */
+      text-decoration: none;  /* Remove underline on links */
+      border: none;  /* No border */
+      border-radius: 8px;  /* Rounded corners */
+      cursor: pointer;  /* Show pointer on hover */
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);  /* Subtle shadow */
+      transition: background-color 0.3s ease;  /* Smooth hover effect */
+    }
+
+    .menu-button:hover {
+      background-color: #8bb8e9; /* Light blue on hover */ 
+    }
+
+    a.menu-button {
+      display: block;  /* Ensures links behave like buttons */
+    }
+  </style>  <!-- End of inline CSS -->
+
+  <!-- Navigation buttons, using target="contentFrame" to load content in the right frame -->
+  <a href="/overview" target="contentFrame" class="menu-button">Overview</a>
+  <a href="/budgets" target="contentFrame" class="menu-button">Budget</a>
+  <a href="/expenses" target="contentFrame" class="menu-button">Expenses</a>
+  <a href="/Transactions" target="contentFrame" class="menu-button">Transaction</a>
+  <a href="/chart" target="chartFrame" class="menu-button">Chart</a>
+
+
+  <!-- Logout button at the bottom; target="_top" breaks out of all frames -->
+  <a href="/logout" target="_top">
+    <button style="margin-top:230px;" class="menu-button">Logout</button>
+  </a>
+
+
+</body>  <!-- End of body -->
+
+</html>  <!-- End of HTML document -->
+
+
+
+

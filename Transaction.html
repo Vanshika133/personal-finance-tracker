@@ -1,0 +1,90 @@
+<!DOCTYPE html>  <!-- Declares the document as HTML5 -->
+<html lang="en">  <!-- Starts the HTML document with language set to English -->
+
+<head>  <!-- Head section contains metadata and styles -->
+  <meta charset="UTF-8">  <!-- Sets character encoding to UTF-8 -->
+  <title>Transaction History</title>  <!-- Sets the page title in the browser tab -->
+
+  <style>  
+    body {
+      font-family: Arial, sans-serif;  /* Sets font style */
+      background: #f9f9f9;  /* Light grey background color */
+      padding: 30px;  /* Padding around the body content */
+    }
+
+    h2 {
+      text-align: center;  /* Center-aligns the heading */
+      margin-bottom: 20px;  /* Space below the heading */
+    }
+
+    table {
+      width: 100%;  /* Table takes full width of container */
+      border-collapse: collapse;  /* Merges table borders */
+      background: white;  /* White background for table */
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);  /* Adds a light shadow around the table */
+    }
+
+    th, td {
+      padding: 12px;  /* Padding inside each cell */
+      text-align: left;  /* Aligns text to the left */
+      border-bottom: 1px solid #ddd;  /* Light bottom border for rows */
+    }
+
+    th {
+      background: #007bff;  /* Blue background for header row */
+      color: white;  /* White text color for headers */
+    }
+
+    tr:hover {
+      background-color: #f1f1f1;  /* Row background changes on hover */
+    }
+
+    .empty {
+      text-align: center;  /* Center-aligns the message */
+      padding: 20px;  /* Padding around the text */
+      color: #888;  /* Grey text color */
+    }
+  </style>  <!-- End of embedded CSS -->
+</head>  <!-- End of head section -->
+
+<body>  <!-- Body section starts -->
+
+  <h2>Transaction History</h2>  <!-- Page heading -->
+
+  {% if transactions %}  <!-- Checks if the 'transactions' list has data -->
+  <table>  <!-- Start of transaction table -->
+    <thead>
+      <tr>
+        <th>Amount (₹)</th>  <!-- Column header for amount -->
+        <th>Date</th>  <!-- Column header for date -->
+        <th>Description</th>  <!-- Column header for description -->
+      </tr>
+    </thead>
+    <tbody>
+      {% for t in transactions %}  <!-- Loop through each transaction -->
+      <tr>
+        <td>{{ t.amount }}</td>  <!-- Displays amount -->
+        <td>{{ t.date }}</td>  <!-- Displays date -->
+        <td>{{ t.description }}</td>  <!-- Displays description -->
+      </tr>
+      {% endfor %}  <!-- End of loop -->
+    </tbody>
+  </table>  <!-- End of table -->
+
+  {% else %}  <!-- If no transactions found -->
+    <div class="empty">No transactions available.</div>  <!-- Message for empty transaction list -->
+  {% endif %}  <!-- End of conditional block -->
+
+  <div style="text-align: center; margin-top: 30px;">  <!-- Container for back button -->
+    <a href="/overview">  <!-- Link back to overview page -->
+      <button style="padding: 10px 20px; background-color: #283645; color: white; border: none; border-radius: 5px; cursor: pointer;">
+        ⬅ Back to Overview  <!-- Text inside the button -->
+      </button>
+    </a>
+  </div>
+
+</body>  <!-- End of body -->
+
+</html>  <!-- End of HTML document -->
+
+

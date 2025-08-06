@@ -1,0 +1,90 @@
+<!DOCTYPE html>  <!-- Declares the document type as HTML5 -->
+<html lang="en">  <!-- Begins the HTML document with English language -->
+<head>  <!-- Start of the head section -->
+
+  <meta charset="UTF-8">  <!-- Sets character encoding to UTF-8 -->
+  <title>Overview</title>  <!-- Sets the page title as seen in the browser tab -->
+
+  <style> 
+    body {
+      margin: 0;  /* Removes default margin from the body */
+      font-family: Arial, sans-serif;  /* Sets the font style */
+      background: #f4f4f4;  /* Light gray background color */
+    }
+
+    .content {
+      padding: 40px;  /* Adds space around the content */
+    }
+
+    .card {
+      background: rgb(20, 8, 49);  /* Dark blue background */
+      padding: 20px;  /* Inner space inside the card */
+      border-radius: 10px;  /* Rounded corners */
+      margin-bottom: 20px;  /* Space below each card */
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);  /* Slight shadow for elevation */
+      color: #f4f4f4;  /* Light text color */
+    }
+
+    .card:hover {
+      background-color: #8bb8e9;  /* Changes background on hover */
+    }
+
+    .reset-btn {
+      background: rgb(11, 4, 25);  /* Dark background for reset button */
+      color: rgb(234, 235, 244);  /* Light text color */
+      padding: 10px;  /* Padding inside the button */
+      border: none;  /* No border */
+      border-radius: 8px;  /* Rounded corners */
+      cursor: pointer;  /* Cursor changes to pointer on hover */
+    }
+
+    .reset-btn:hover {
+      background-color: #8bb8e9;  /* Hover effect for reset button */
+    }
+
+  </style>  <!-- End of CSS styles -->
+
+</head>  <!-- End of head section -->
+
+<body>  <!-- Start of body content -->
+
+  <div class="content">  <!-- Wrapper for the page content with padding -->
+    <h1>Overview</h1>  <!-- Main heading -->
+
+    <div class="card">  <!-- First card showing total budget -->
+      <h3>Total Budget</h3>
+      <p>₹ {{ budget }}</p>  <!-- Displays the budget passed from Flask backend -->
+    </div>
+
+    <div class="card">  <!-- Second card showing total expenses -->
+      <h3>Total Expenses</h3>
+      <p>₹ {{ expenses }}</p>  <!-- Displays total expenses passed from Flask -->
+    </div>
+
+    <div class="card">  <!-- Third card showing remaining balance -->
+      <h3>Remaining Balance</h3>
+      <p>₹ {{ balance }}</p>  <!-- Displays balance (budget - expenses) -->
+    </div>
+
+    <div class="card">  <!-- Fourth card listing transactions -->
+      <h3>Transactions</h3>
+      <ul>
+        {% if transactions %}  <!-- Checks if there are any transactions -->
+          {% for t in transactions %}  <!-- Loops through each transaction -->
+            <li>{{ t.date }} - ₹{{ t.amount }} - {{ t.description }}</li>  <!-- Shows each transaction -->
+          {% endfor %}
+        {% else %}  <!-- If there are no transactions -->
+          <li>No transactions yet</li>  <!-- Message when list is empty -->
+        {% endif %}
+      </ul>
+    </div>
+
+    <form action="/reset" method="post">  <!-- Form to reset all data (POST method) -->
+      <button type="submit" class="reset-btn">Reset All</button>  <!-- Reset button -->
+    </form>
+
+  </div>  <!-- End of content wrapper -->
+
+</body>  <!-- End of body -->
+
+</html>  <!-- End of HTML document -->

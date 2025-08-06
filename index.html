@@ -1,0 +1,35 @@
+<!DOCTYPE html>  <!-- Declares the HTML document type -->
+<html>  <!-- Starts the HTML document -->
+
+<head>  <!-- Head section for title -->
+  <title>Finance Tracker</title>  <!-- Title shown in the browser tab -->
+</head>  <!-- End of head section -->
+
+<!-- Frameset layout begins -->
+<frameset cols="20%,80%">  
+  <!-- Splits the screen vertically: 
+       - 20% for the left menu 
+       - 80% for the right side (main content + chart) -->
+
+  <frame src="/menu" name="menuFrame">  
+  <!-- Loads the menu page into the left frame. 
+       The name 'menuFrame' allows links to target this frame -->
+
+  <frameset rows="*,50%">  
+    <!-- Inside the right 80%, split it horizontally:
+         - Top: main content
+         - Bottom: chart -->
+
+    <frame src="/overview" name="contentFrame">  
+    <!-- Loads the overview page into the top frame (main content).
+         The name 'contentFrame' allows menu buttons to load content here -->
+
+    <frame src="/chart" name="chartFrame">  
+    <!-- Loads the finance chart into the bottom 50% of the right side -->
+
+  </frameset>  <!-- End of nested frameset -->
+
+</frameset>  <!-- End of main frameset -->
+
+</html>  <!-- End of HTML document -->
+

@@ -1,0 +1,141 @@
+<!DOCTYPE html>  <!-- Declares the document as HTML5 -->
+<html lang="en">  <!-- Starts the HTML document with English as the language -->
+
+<head>  <!-- Head section begins -->
+  <meta charset="UTF-8">  <!-- Character encoding set to UTF-8 -->
+  <title>Login Page</title>  <!-- Title shown in the browser tab -->
+
+  <style> 
+    body {
+      margin: 0;  /* Removes default margin */
+      font-family: Arial, sans-serif;  /* Sets font for the page */
+    }
+
+    .container {
+      display: flex;  /* Flex layout for horizontal split */
+      height: 100vh;  /* Full height of the viewport */
+    }
+
+    .left {
+      width: 50%;  /* Left side takes 50% of the width */
+      background-color: #f0f0f0;  /* Light gray background */
+      display: flex;
+      justify-content: center;  /* Center horizontally */
+      align-items: center;  /* Center vertically */
+    }
+
+    .left img {
+      width: 90%;  /* Responsive image width */
+      max-width: 700px;  /* Max width to prevent stretching */
+      border-radius: 10px;  /* Rounded corners */
+    }
+
+    .right {
+      flex: 1;  /* Right side takes the remaining width */
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-color: #f7f7f7;  /* Slightly lighter background */
+      padding: 30px;  /* Padding inside the right side */
+    }
+
+    .register-box {
+      background-color: #ffffff;  /* White background */
+      padding: 30px;  /* Padding inside the box */
+      border-radius: 10px;  /* Rounded corners */
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);  /* Light shadow for depth */
+      width: 100%;
+      max-width: 400px;  /* Limit box width */
+    }
+
+    .register-box h2 {
+      margin-bottom: 20px;
+      text-align: center;  /* Center the heading text */
+    }
+
+    .register-box input[type="text"],
+    .register-box input[type="password"] {
+      width: 100%;  /* Full width inputs */
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;  /* Light border */
+      border-radius: 5px;  /* Rounded corners */
+    }
+
+    .register-box input[type="submit"] {
+      width: 100%;
+      padding: 10px;
+      background-color: #007BFF;  /* Bootstrap blue */
+      border: none;
+      color: white;
+      font-weight: bold;
+      border-radius: 5px;
+      cursor: pointer;  /* Pointer on hover */
+    }
+
+    .register-box input[type="submit"]:hover {
+      opacity: 0.9;  /* Slight transparency effect on hover */
+    }
+
+    .register-box p {
+      margin-top: 15px;
+      text-align: center;
+    }
+
+    .register-box a {
+      color: #007BFF;  /* Blue link */
+      text-decoration: none;
+    }
+
+    .register-box a:hover {
+      text-decoration: underline;  /* Underline on hover */
+    }
+  </style>  <!-- End of CSS -->
+</head>  <!-- End of head -->
+
+<body>  <!-- Start of the page content -->
+
+  <div class="container">  <!-- Main container with left and right sections -->
+
+    <div class="left">  <!-- Left side with image -->
+      <img src="{{ url_for('static', filename='image1/finance.jpg') }}" alt="Finance">
+      <!-- Displays an image from the static folder -->
+    </div>
+
+    <div class="right">  <!-- Right side with login form -->
+      <div class="register-box">
+        <h2>Login</h2>
+
+        <form method="POST" action="{{ url_for('login') }}">
+          <!-- Form sends POST request to the Flask login route -->
+          <input type="text" name="username" id="username" placeholder="Username" required><br>
+          <input type="password" name="password" id="password" placeholder="Password" required><br>
+          <input type="submit" value="Login">  <!-- Submit button -->
+        </form>
+
+        <p>Don't have an account? <a href="{{ url_for('register') }}">Register here</a></p>
+        <!-- Link to registration page -->
+      </div>
+    </div>
+
+  </div>  <!-- End of .container -->
+
+  <script>
+    // This JS function is not currently used, but intended for client-side login
+    function login() {
+      let username = document.getElementById('username').value;
+      let password = document.getElementById('password').value;
+
+      if (username && password) {
+        // ✅ This would redirect, but it's not connected to Flask logic
+        window.location.href = "index.html";
+      } else {
+        alert("Please enter both username and password.");
+      }
+    }
+  </script>
+
+</body>  <!-- End of body -->
+
+</html>  <!-- End of HTML -->

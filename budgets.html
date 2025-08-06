@@ -1,0 +1,85 @@
+<!DOCTYPE html>  <!-- Declares the HTML5 document type -->
+<html lang="en">  <!-- Starts the HTML document with language set to English -->
+
+<head>  <!-- Head section begins -->
+  <meta charset="UTF-8">  <!-- Sets character encoding to UTF-8 -->
+  <title>Set Budget</title>  <!-- Title shown in browser tab -->
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;  /* Sets the font style */
+      background: #f4f4f4;  /* Light gray background */
+      display: flex;  /* Uses Flexbox for layout */
+      justify-content: center;  /* Centers content horizontally */
+      align-items: center;  /* Centers content vertically */
+      height: 100vh;  /* Full height of the viewport */
+    }
+
+    .budget-box {
+      background: white;  /* White background box */
+      padding: 30px;  /* Inner spacing */
+      border-radius: 10px;  /* Rounded corners */
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);  /* Soft shadow */
+      width: 300px;  /* Fixed width */
+    }
+
+    .budget-box h2 {
+      text-align: center;  /* Centers heading text */
+      margin-bottom: 20px;  /* Adds space below heading */
+    }
+
+    .budget-box input[type="number"] {
+      width: 100%;  /* Full width input */
+      padding: 10px;  /* Padding inside input */
+      margin-bottom: 15px;  /* Space below input */
+      border: 1px solid #ccc;  /* Light gray border */
+      border-radius: 5px;  /* Rounded corners */
+    }
+
+    .budget-box input[type="submit"] {
+      width: 100%;  /* Full width button */
+      padding: 10px;  /* Padding inside button */
+      background: #0e0420;  /* Dark background color */
+      color: rgb(220, 220, 226);  /* Light text color */
+      font-weight: bold;  /* Bold text */
+      border: none;  /* No border */
+      border-radius: 5px;  /* Rounded corners */
+      cursor: pointer;  /* Pointer cursor on hover */
+    }
+
+    .budget-box input[type="submit"]:hover {
+      opacity: 0.9;  /* Slight transparency on hover */
+    }
+    
+  </style>  <!-- End of embedded CSS -->
+</head>  <!-- End of head section -->
+
+<body>  <!-- Start of body -->
+
+<div class="budget-box">  <!-- Main container for the form -->
+  <h2>Enter Monthly Budget</h2>  <!-- Page heading -->
+
+  <form method="POST" action="/budgets">  <!-- Form sends data via POST to /budgets route -->
+    <input type="number" name="amount" placeholder="Enter budget amount ₹" required>  
+    <!-- Number input for budget amount, required field -->
+    
+    <input type="submit" value="Save Budget">  
+    <!-- Submit button to send the form -->
+  </form>
+
+  <div style="text-align: center; margin-top: 30px;">  <!-- Centered section for back button -->
+    <a href="/overview">  <!-- Link back to overview page -->
+      <button style="padding: 10px 20px; background-color: #3a4552; color: white; border: none; border-radius: 5px; cursor: pointer;">
+        ⬅ Back to Overview  <!-- Button text -->
+      </button>
+    </a>
+  </div>
+
+</div>  <!-- End of .budget-box -->
+
+</body>  <!-- End of body -->
+
+</html>  <!-- End of HTML document -->
+
+
+

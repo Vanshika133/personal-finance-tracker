@@ -1,0 +1,34 @@
+<!-- templates/home.html -->
+<!DOCTYPE html>  <!-- Declares the document type as HTML5 -->
+<html>  <!-- Opens the HTML document -->
+
+<head>  <!-- Head section contains metadata and title -->
+    <title>Welcome</title>  <!-- Title shown in browser tab -->
+</head>  <!-- End of head section -->
+
+<style>
+    /* Style block for custom CSS */
+
+    .left img {  /* Targets image inside an element with class "left" */
+      width: 30%;  /* Sets image width to 30% of the container */
+      max-width: 200px;  /* Ensures image doesn't exceed 200px */
+      border-radius: 10px;  /* Adds rounded corners to the image */
+      margin-top: 200px;  /* Adds space above the image */
+      margin-bottom: 100px;  /* Adds space below the image */
+      margin-left: 500px;  /* Moves image to the right from the left edge */
+      margin-right: 100px;  /* Adds space on the right side */
+    }
+</style>  <!-- End of CSS style block -->
+
+<body>  <!-- Body of the webpage starts here -->
+
+    <!-- Clickable logo -->
+    <a href="{{ url_for('login') }}" class="left">  
+        <!-- Anchor tag linking to the 'login' route of the Flask app, class "left" for styling -->
+        <img src="{{ url_for('static', filename='image1/logo.jpg') }}" alt="App Logo">  
+        <!-- Displays the logo image from 'static/image1/logo.jpg'; clicking it redirects to login -->
+    </a>  <!-- End of anchor tag -->
+
+</body>  <!-- End of body section -->
+</html>  <!-- End of HTML document -->
+

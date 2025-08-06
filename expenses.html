@@ -1,0 +1,86 @@
+<!DOCTYPE html>  <!-- Declares this document as HTML5 -->
+<html lang="en">  <!-- Starts the HTML document and sets the language to English -->
+
+<head>  <!-- Head section for metadata and styles -->
+  <meta charset="UTF-8">  <!-- Character encoding set to UTF-8 -->
+  <title>Add Expense</title>  <!-- Page title shown in browser tab -->
+
+  <style>  
+    body {
+      font-family: Arial, sans-serif;  /* Sets the font */
+      background: #f4f4f4;  /* Light grey background */
+      display: flex;  /* Uses Flexbox layout */
+      justify-content: center;  /* Center horizontally */
+      align-items: center;  /* Center vertically */
+      height: 100vh;  /* Full height of the viewport */
+    }
+
+    .expense-box {
+      background: white;  /* White background for the form box */
+      padding: 30px;  /* Padding inside the box */
+      border-radius: 10px;  /* Rounded corners */
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);  /* Drop shadow for elevation */
+      width: 350px;  /* Fixed width */
+    }
+
+    .expense-box h2 {
+      text-align: center;  /* Center the heading */
+      margin-bottom: 20px;  /* Space below the heading */
+    }
+
+    .expense-box input, .expense-box textarea {
+      width: 100%;  /* Inputs take full width */
+      padding: 10px;  /* Inner padding */
+      margin-bottom: 15px;  /* Space between fields */
+      border: 1px solid #ccc;  /* Light gray border */
+      border-radius: 5px;  /* Rounded corners */
+    }
+
+    .expense-box input[type="submit"] {
+      background: #1c0e46;  /* Dark purple background */
+      color: white;  /* White text */
+      font-weight: bold;  /* Bold text */
+      border: none;  /* No border */
+      cursor: pointer;  /* Pointer cursor on hover */
+    }
+
+    .expense-box input[type="submit"]:hover {
+      opacity: 0.9;  /* Slight fade effect on hover */
+    }
+  </style>  <!-- End of CSS -->
+</head>  <!-- End of head section -->
+
+<body>  <!-- Body content starts -->
+
+<div class="expense-box">  <!-- Container for the expense form -->
+  <h2>Add Expense</h2>  <!-- Page heading -->
+
+  <form method="POST" action="/expenses">  <!-- Form that sends POST request to '/expenses' -->
+    <input type="number" name="amount" placeholder="Amount (₹)" required>  
+    <!-- Number input field for expense amount (required) -->
+
+    <input type="date" name="date" required>  
+    <!-- Date input field for expense date (required) -->
+
+    <textarea name="description" placeholder="Description" rows="3" required></textarea>  
+    <!-- Textarea for description of the expense (required) -->
+
+    <input type="submit" value="Save Expense">  
+    <!-- Submit button to save the expense -->
+  </form>
+
+  <div style="text-align: center; margin-top: 30px;">  <!-- Container for back button -->
+    <a href="/overview">  <!-- Link to go back to the overview page -->
+      <button style="padding: 10px 20px; background-color: #11263b; color: white; border: none; border-radius: 5px; cursor: pointer;">
+        ⬅ Back to Overview  <!-- Button text -->
+      </button>
+    </a>
+  </div>
+
+</div>  <!-- End of .expense-box -->
+
+</body>  <!-- End of body content -->
+
+</html>  <!-- End of HTML document -->
+
+
